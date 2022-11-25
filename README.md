@@ -20,7 +20,7 @@
    - To start training `python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config`
    - To evaluation `python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/`
    - First I trained the model using the default parameters in the config file and get the flowing result <br> ![loss](images/loss_before_aug.png "loss")
-   - Loss after training <br> ![loss](images/loss.png "loss")
+   - Loss after training with data augmentation, LR 1e-3, batch size 4, 5000 total step <br> ![loss](images/loss.png "loss")
      - The model is overfiting because lower training loss
    - Agumentation:
      - random_crop_image
