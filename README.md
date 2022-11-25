@@ -11,15 +11,17 @@
    - For evaluate `python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/`
 3. Dataset <br>
    - Analysis:
-     - The dataset is very unbalance with the class 1 have very many sample meanwhile class 4 is only have some. ![class](images\class.png "class").
-     - Size of the bbox in the dataset. <br> ![bboxes_size](images\bboxes_size.png "bboxes size").
+     - The dataset is very unbalance with the class 1 have very many sample meanwhile class 4 is only have some. ![class](images/class.png "class").
+     - Size of the bbox in the dataset. <br> ![bboxes_size](images/bboxes_size.png "bboxes size").
    - Data split:
      - I use the default train and valid set in the workspace
 4. Training <br>
    - To training model first we need to create new config file using this command `python edit_config.py --train_dir /home/workspace/data/train/ --eval_dir /home/workspace/data/val/ --batch_size 2 --checkpoint /home/workspace/experiments/pretrained_model/ssd_resnet50_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0 --label_map /home/workspace/experiments/label_map.pbtxt`
    - To start training `python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config`
    - To evaluation `python experiments/model_main_tf2.py --model_dir=experiments/reference/ --pipeline_config_path=experiments/reference/pipeline_new.config --checkpoint_dir=experiments/reference/`
-   - Loss after training <br> ![loss](images\loss.png "loss")
+   - First I trained the model using the default parameters in the config file and get the flowing result <br> ![loss](images/loss_before_aug.png "loss")
+   - Loss after training <br> ![loss](images/loss.png "loss")
+     - The model is overfiting because lower training loss
    - Agumentation:
      - random_crop_image
      - random_adjust_brightness
